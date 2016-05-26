@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		972B5B5514A95C9E7FB426A4 /* Pods_Poll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170AE97B55FBA420DBF31D05 /* Pods_Poll.framework */; };
+		E45156E11CF793D20061B7F2 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45156E01CF793D20061B7F2 /* Poll.swift */; };
 		E4A454621CF67EA50098409B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A454611CF67EA50098409B /* User.swift */; };
 		E4A454691CF6CEDB0098409B /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A454681CF6CEDB0098409B /* NavViewController.swift */; };
 		E4B4388D1CF66C8A0056C56D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B4388C1CF66C8A0056C56D /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 		170AE97B55FBA420DBF31D05 /* Pods_Poll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0C6554E7CB5C4E23EBD29D /* Pods-Poll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poll.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poll/Pods-Poll.release.xcconfig"; sourceTree = "<group>"; };
 		D1AA13FC13A5FE906BE2386E /* Pods-Poll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Poll/Pods-Poll.debug.xcconfig"; sourceTree = "<group>"; };
+		E45156E01CF793D20061B7F2 /* Poll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		E4A454611CF67EA50098409B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E4A454681CF6CEDB0098409B /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		E4B438891CF66C8A0056C56D /* Poll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poll.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				E4A454611CF67EA50098409B /* User.swift */,
+				E45156E01CF793D20061B7F2 /* Poll.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E45156E11CF793D20061B7F2 /* Poll.swift in Sources */,
 				E4B4388F1CF66C8A0056C56D /* ViewController.swift in Sources */,
 				E4B4388D1CF66C8A0056C56D /* AppDelegate.swift in Sources */,
 				E4A454691CF6CEDB0098409B /* NavViewController.swift in Sources */,

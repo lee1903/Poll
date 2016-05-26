@@ -1,3 +1,4 @@
 FBSDKCoreKit.framework
 FBSDKLoginKit.framework
 FBSDKShareKit.framework
+Pods/*
