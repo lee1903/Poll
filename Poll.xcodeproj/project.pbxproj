@@ -12,6 +12,7 @@
 		E45156E31CF7A2740061B7F2 /* PollOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45156E21CF7A2740061B7F2 /* PollOptionsViewController.swift */; };
 		E45156E51CF7A74E0061B7F2 /* PollingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45156E41CF7A74E0061B7F2 /* PollingViewController.swift */; };
 		E45156E71CF7B71F0061B7F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45156E61CF7B71F0061B7F2 /* MapKit.framework */; };
+		E461AC0D1CF82524007F1120 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E461AC0C1CF82524007F1120 /* APIClient.swift */; };
 		E4A454621CF67EA50098409B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A454611CF67EA50098409B /* User.swift */; };
 		E4A454691CF6CEDB0098409B /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A454681CF6CEDB0098409B /* NavViewController.swift */; };
 		E4B4388D1CF66C8A0056C56D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B4388C1CF66C8A0056C56D /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 		E45156E21CF7A2740061B7F2 /* PollOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollOptionsViewController.swift; sourceTree = "<group>"; };
 		E45156E41CF7A74E0061B7F2 /* PollingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollingViewController.swift; sourceTree = "<group>"; };
 		E45156E61CF7B71F0061B7F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E461AC0C1CF82524007F1120 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E4A454611CF67EA50098409B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E4A454681CF6CEDB0098409B /* NavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		E4B438891CF66C8A0056C56D /* Poll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poll.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 		E4B4388B1CF66C8A0056C56D /* Poll */ = {
 			isa = PBXGroup;
 			children = (
+				E461AC0C1CF82524007F1120 /* APIClient.swift */,
 				E4B4388C1CF66C8A0056C56D /* AppDelegate.swift */,
 				E4B438901CF66C8A0056C56D /* Main.storyboard */,
 				E4A454651CF6CE3E0098409B /* View Controllers */,
@@ -266,6 +269,7 @@
 				E45156E11CF793D20061B7F2 /* Poll.swift in Sources */,
 				E4B4388F1CF66C8A0056C56D /* ViewController.swift in Sources */,
 				E45156E31CF7A2740061B7F2 /* PollOptionsViewController.swift in Sources */,
+				E461AC0D1CF82524007F1120 /* APIClient.swift in Sources */,
 				E4B4388D1CF66C8A0056C56D /* AppDelegate.swift in Sources */,
 				E45156E51CF7A74E0061B7F2 /* PollingViewController.swift in Sources */,
 				E4A454691CF6CEDB0098409B /* NavViewController.swift in Sources */,
