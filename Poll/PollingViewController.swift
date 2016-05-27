@@ -1,24 +1,22 @@
 //
-//  NavViewController.swift
+//  PollingViewController.swift
 //  Poll
 //
-//  Created by Brian Lee on 5/25/16.
+//  Created by Brian Lee on 5/26/16.
 //  Copyright © 2016 brianlee. All rights reserved.
 //
 
 import UIKit
-import FBSDKCoreKit
-import FBSDKLoginKit
 
-class NavViewController: UIViewController {
+class PollingViewController: UIViewController {
+    
+    var currentPoll: Poll?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red:0.46, green:0.43, blue:0.56, alpha:1.0)
-        
-        print(User.currentUser!.name!)
-        print(User.currentUser!.email!)
+        self.navigationItem.hidesBackButton = true
+        print(currentPoll!.optionsCount!)
 
         // Do any additional setup after loading the view.
     }
@@ -29,19 +27,6 @@ class NavViewController: UIViewController {
     }
     
 
-    @IBAction func onLogout(sender: AnyObject) {
-        let loginManager = FBSDKLoginManager()
-        loginManager.logOut() // this is an instance function
-        User.currentUser?.logout()
-    }
-    
-    @IBAction func onCreatePoll(sender: AnyObject) {
-        self.performSegueWithIdentifier("SetPollOptions", sender: self)
-    }
-    
-    @IBAction func onTakePoll(sender: AnyObject) {
-    }
-    
     /*
     // MARK: - Navigation
 

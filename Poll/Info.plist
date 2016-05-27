@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Poll would like to use your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Poll would like to use your location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -38,12 +42,12 @@
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
-	  <dict>
-	  <key>CFBundleURLSchemes</key>
-	  <array>
-	    <string>fb241288309583560</string>
-	  </array>
-	  </dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb241288309583560</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>241288309583560</string>
@@ -51,10 +55,10 @@
 	<string>Poll</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-	  <string>fbapi</string>
-	  <string>fb-messenger-api</string>
-	  <string>fbauth2</string>
-	  <string>fbshareextension</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 </dict>
 </plist>

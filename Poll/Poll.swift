@@ -7,19 +7,18 @@
 //
 
 import Foundation
+import CoreLocation
 
 class Poll: NSObject {
     let stats: NSArray?
-    let options: NSArray?
     let optionsCount: Int?
-    let question: String?
     let title: String?
     let date: NSDate?
+    let location: CLLocation?
     
-    init(question: String, options: NSArray, optionsCount: Int) {
-        self.question = question
-        self.options = options
+    init(optionsCount: Int, location: CLLocation) {
         self.optionsCount = optionsCount
+        self.location = location
         
         self.stats = [optionsCount]
         self.title = ""

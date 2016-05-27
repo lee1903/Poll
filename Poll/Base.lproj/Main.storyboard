@@ -48,7 +48,53 @@
                     <view key="view" contentMode="scaleToFill" id="ye7-23-Y8L">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-Mh-1dV">
+                                <rect key="frame" x="0.0" y="316" width="320" height="252"/>
+                                <color key="backgroundColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Take a Poll">
+                                            <attributes>
+                                                <color key="NSColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="30" name="HelveticaNeue-Thin"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="onTakePoll:" destination="9iX-ld-kyG" eventType="touchUpInside" id="ZXx-W5-Has"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phP-jA-qtK">
+                                <rect key="frame" x="0.0" y="64" width="320" height="252"/>
+                                <color key="backgroundColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Create a Poll">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="30" name="HelveticaNeue-Thin"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="onCreatePoll:" destination="9iX-ld-kyG" eventType="touchUpInside" id="2nd-7J-chO"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wgh-Mh-1dV" firstAttribute="leading" secondItem="ye7-23-Y8L" secondAttribute="leading" id="98r-pQ-Uf1"/>
+                            <constraint firstItem="Wgh-Mh-1dV" firstAttribute="height" secondItem="phP-jA-qtK" secondAttribute="height" id="9uR-zA-RLm"/>
+                            <constraint firstAttribute="trailing" secondItem="phP-jA-qtK" secondAttribute="trailing" id="QA0-qB-ZG2"/>
+                            <constraint firstItem="phP-jA-qtK" firstAttribute="top" secondItem="J8k-I7-Qwn" secondAttribute="bottom" id="RTQ-nZ-ynd"/>
+                            <constraint firstItem="phP-jA-qtK" firstAttribute="leading" secondItem="ye7-23-Y8L" secondAttribute="leading" id="Soi-yY-zGZ"/>
+                            <constraint firstItem="0wI-cJ-cyo" firstAttribute="top" secondItem="Wgh-Mh-1dV" secondAttribute="bottom" id="c6x-Ld-naZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Wgh-Mh-1dV" secondAttribute="trailing" id="gmR-vi-lEs"/>
+                            <constraint firstItem="Wgh-Mh-1dV" firstAttribute="top" secondItem="phP-jA-qtK" secondAttribute="bottom" id="xRk-mC-45A"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="muq-D9-Dfh">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="D4m-mO-lyE">
@@ -62,10 +108,129 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Hki-GE-hoi" kind="push" identifier="SetPollOptions" id="8ke-4v-Ak8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypN-T7-aIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064" y="339"/>
+        </scene>
+        <!--Poll Options View Controller-->
+        <scene sceneID="Pd7-7b-46N">
+            <objects>
+                <viewController id="Hki-GE-hoi" customClass="PollOptionsViewController" customModule="Poll" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Krb-ij-AEB"/>
+                        <viewControllerLayoutGuide type="bottom" id="3hU-Gv-iN2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h53-sP-r9g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EcH-lm-yg9">
+                                <rect key="frame" x="30" y="144" width="260" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="i1l-WK-O7I"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                    <segment title="5"/>
+                                </segments>
+                                <color key="tintColor" red="0.60784313729999995" green="0.58431372550000005" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="onNumOptionsChange:" destination="Hki-GE-hoi" eventType="valueChanged" id="gmE-8t-TSD"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6I-j9-lm6">
+                                <rect key="frame" x="77" y="100" width="167" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="40F-WR-89M"/>
+                                    <constraint firstAttribute="width" constant="167" id="MiE-KY-KPg"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Number of options:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue-Light"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMk-bd-GrH">
+                                <rect key="frame" x="30" y="480" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="L59-xu-U7Z"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Create Poll">
+                                            <attributes>
+                                                <color key="NSColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="onCreatePoll:" destination="Hki-GE-hoi" eventType="touchUpInside" id="zou-bg-JAx"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0Td-yi-F0N">
+                                <rect key="frame" x="30" y="220" width="260" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="sTY-Xg-IY4"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I6I-j9-lm6" firstAttribute="top" secondItem="Krb-ij-AEB" secondAttribute="bottom" constant="36" id="3Re-LX-s4b"/>
+                            <constraint firstItem="0Td-yi-F0N" firstAttribute="leading" secondItem="h53-sP-r9g" secondAttribute="leading" constant="30" id="Jnz-1X-TPE"/>
+                            <constraint firstItem="0Td-yi-F0N" firstAttribute="top" secondItem="EcH-lm-yg9" secondAttribute="bottom" constant="48" id="KLT-nc-wIl"/>
+                            <constraint firstAttribute="trailing" secondItem="0Td-yi-F0N" secondAttribute="trailing" constant="30" id="RQp-rI-Rdi"/>
+                            <constraint firstItem="EcH-lm-yg9" firstAttribute="leading" secondItem="h53-sP-r9g" secondAttribute="leading" constant="30" id="V3K-Ik-UWm"/>
+                            <constraint firstAttribute="trailing" secondItem="EcH-lm-yg9" secondAttribute="trailing" constant="30" id="ZVQ-Ax-Dbi"/>
+                            <constraint firstItem="UMk-bd-GrH" firstAttribute="leading" secondItem="h53-sP-r9g" secondAttribute="leading" constant="30" id="eFU-Km-63f"/>
+                            <constraint firstItem="3hU-Gv-iN2" firstAttribute="top" secondItem="UMk-bd-GrH" secondAttribute="bottom" constant="26" id="kJh-2x-ryn"/>
+                            <constraint firstItem="I6I-j9-lm6" firstAttribute="centerX" secondItem="h53-sP-r9g" secondAttribute="centerX" id="l8K-fK-DSN"/>
+                            <constraint firstItem="EcH-lm-yg9" firstAttribute="top" secondItem="I6I-j9-lm6" secondAttribute="bottom" constant="20" id="rqE-O5-F0e"/>
+                            <constraint firstAttribute="trailing" secondItem="UMk-bd-GrH" secondAttribute="trailing" constant="30" id="v0o-pP-Epo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ctN-Fr-aHo"/>
+                    <connections>
+                        <outlet property="mapView" destination="0Td-yi-F0N" id="XZ0-Hq-Rtp"/>
+                        <segue destination="nbS-Vs-Bch" kind="push" identifier="CreatePollWithOptions" id="dvu-qN-Rr3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EpT-jZ-4My" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495" y="334"/>
+        </scene>
+        <!--Polling View Controller-->
+        <scene sceneID="y0L-Dq-3KG">
+            <objects>
+                <viewController id="nbS-Vs-Bch" customClass="PollingViewController" customModule="Poll" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XiK-ln-086"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xcm-g9-gXF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JIf-7O-BeU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vRh-xz-cNT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p0c-jb-hBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1925" y="334"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yC2-9y-QwP">
