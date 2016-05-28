@@ -40,6 +40,7 @@ class NavViewController: UIViewController {
     }
     
     @IBAction func onTakePoll(sender: AnyObject) {
+        self.performSegueWithIdentifier("TakePoll", sender: self)
     }
     
     /*

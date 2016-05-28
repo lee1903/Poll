@@ -66,12 +66,14 @@ class PollOptionsViewController: UIViewController, CLLocationManagerDelegate, MK
         if(numOptions == nil) {
             numOptions = 1
         }
+        
         let poll = Poll(optionsCount: numOptions!, location: currentLocation!, author: User.currentUser!)
         
-        APIClient.createPoll(poll) { (error) -> () in
+        APIClient.createPoll(poll) { (response, error) -> () in
             if error != nil{
                 print(error?.localizedDescription)
             } else {
+                poll.id = response!
                 self.performSegueWithIdentifier("CreatePollWithOptions", sender: poll)
             }
         }

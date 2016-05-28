@@ -16,11 +16,14 @@ class Poll: NSObject {
     let date: NSDate?
     let location: CLLocation?
     let author: User?
+    var id: String?
     
     init(optionsCount: Int, location: CLLocation, author: User) {
         self.optionsCount = optionsCount
         self.location = location
         self.author = author
+        
+        self.id = nil
         
         self.stats = [optionsCount]
         self.title = ""
