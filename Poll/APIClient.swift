@@ -81,15 +81,11 @@ class APIClient {
         let url = apiURL + "polls/id=\(id)"
         
         http.GET(url, parameters: [], progress: { (progress: NSProgress) in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) in
-            
-            if response != nil {
 
-                let dictionary = response! as! NSDictionary
+            let dictionary = response! as! NSDictionary
+            let optionsCount = dictionary["optionsCount"] as! String
                 
-                let optionsCount = dictionary["optionsCount"] as! String
-                
-                completion(optionsCount: optionsCount, error: nil)
-            }
+            completion(optionsCount: optionsCount, error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) in
             

@@ -37,6 +37,14 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        codeTextField.text = ""
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        codeTextField.becomeFirstResponder()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,8 +55,16 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
         APIClient.joinPoll(codeTextField.text!) { (optionsCount, error) in
             if error != nil {
                 print(error?.localizedDescription)
+                
+                let alert = UIAlertController(title: "Uh oh!", message: "Unable to join this poll. Check to make sure you have the right code and that your location services is on.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+                    self.codeTextField.text = ""
+                    self.codeTextField.becomeFirstResponder()
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
             } else {
-                print(optionsCount!)
+                self.performSegueWithIdentifier("AnswerPoll", sender: optionsCount!)
             }
         }
     }
@@ -104,14 +120,12 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AnswerPoll" {
+            let vc = segue.destinationViewController as! AnswerPollViewController
+            let str = sender! as! String
+            vc.pollOptions = Int(str)
+        }
     }
-    */
 
 }

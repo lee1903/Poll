@@ -129,23 +129,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="0000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbF-62-J6u" customClass="CustomTextField" customModule="Poll" customModuleProvider="target">
-                                <rect key="frame" x="105" y="125" width="111" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="VFS-xl-pjs"/>
-                                    <constraint firstAttribute="width" constant="111" id="vhx-pt-ucp"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="0000">
-                                        <attributes>
-                                            <color key="NSColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="48" name="HelveticaNeue-Light"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="join"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6K-ob-WAz">
                                 <rect key="frame" x="110" y="93" width="100" height="24"/>
                                 <constraints>
@@ -172,7 +155,7 @@
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NBg-oc-TLH">
                                 <rect key="frame" x="30" y="480" width="260" height="62"/>
-                                <color key="backgroundColor" red="0.60784313729999995" green="0.58431372550000005" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="QWb-dI-ng4"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="Rxp-JA-Wmw"/>
@@ -181,7 +164,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Join Poll">
                                             <attributes>
-                                                <color key="NSColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
                                             </attributes>
                                         </fragment>
@@ -191,6 +174,23 @@
                                     <action selector="onJoin:" destination="3LR-12-zAP" eventType="touchUpInside" id="5zt-LG-1pu"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="0000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbF-62-J6u" customClass="CustomTextField" customModule="Poll" customModuleProvider="target">
+                                <rect key="frame" x="97" y="117" width="127" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="VFS-xl-pjs"/>
+                                    <constraint firstAttribute="width" constant="127" id="vhx-pt-ucp"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="0000">
+                                        <attributes>
+                                            <color key="NSColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="55" name="HelveticaNeue-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="join"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -198,7 +198,7 @@
                             <constraint firstItem="9uf-7z-WWh" firstAttribute="top" secondItem="NBg-oc-TLH" secondAttribute="bottom" constant="26" id="3JE-Q4-0y7"/>
                             <constraint firstItem="x6K-ob-WAz" firstAttribute="centerX" secondItem="dKa-6i-VG1" secondAttribute="centerX" id="8kW-B0-FEq"/>
                             <constraint firstItem="qbF-62-J6u" firstAttribute="centerX" secondItem="dKa-6i-VG1" secondAttribute="centerX" id="9QR-ah-Zx3"/>
-                            <constraint firstItem="qbF-62-J6u" firstAttribute="top" secondItem="x6K-ob-WAz" secondAttribute="bottom" constant="8" id="Rdi-63-C2U"/>
+                            <constraint firstItem="qbF-62-J6u" firstAttribute="top" secondItem="x6K-ob-WAz" secondAttribute="bottom" id="Rdi-63-C2U"/>
                             <constraint firstAttribute="trailing" secondItem="EsL-LN-v1f" secondAttribute="trailing" constant="30" id="V7Q-ek-PEk"/>
                             <constraint firstItem="x6K-ob-WAz" firstAttribute="top" secondItem="gi5-5l-1FQ" secondAttribute="bottom" constant="29" id="Y3X-Lz-e1d"/>
                             <constraint firstItem="EsL-LN-v1f" firstAttribute="leading" secondItem="dKa-6i-VG1" secondAttribute="leading" constant="30" id="eUR-Yc-JaQ"/>
@@ -210,11 +210,165 @@
                     <connections>
                         <outlet property="codeTextField" destination="qbF-62-J6u" id="Di7-hc-dvi"/>
                         <outlet property="takePollMapView" destination="EsL-LN-v1f" id="emb-xZ-O59"/>
+                        <segue destination="ykk-ov-QBR" kind="modal" identifier="AnswerPoll" id="FZl-HV-QtI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xbw-1e-FKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1549" y="709"/>
+        </scene>
+        <!--Answer Poll View Controller-->
+        <scene sceneID="tuB-eD-RGO">
+            <objects>
+                <viewController id="ykk-ov-QBR" customClass="AnswerPollViewController" customModule="Poll" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZXk-6z-Tqu"/>
+                        <viewControllerLayoutGuide type="bottom" id="kwf-EM-L43"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6no-AO-RSD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMb-9u-l4c">
+                                <rect key="frame" x="30" y="60" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.25490196079999999" green="0.21960784310000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="MO2-KJ-45e"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="A">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xj-bH-5Zw">
+                                <rect key="frame" x="30" y="152" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.25490196079999999" green="0.21960784310000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="TjE-LP-Fzn"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="B">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vRh-UY-iQD">
+                                <rect key="frame" x="30" y="244" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.25490196079999999" green="0.21960784310000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="RXR-76-y3p"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="C">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uql-RR-7Ib">
+                                <rect key="frame" x="30" y="428" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.25490196079999999" green="0.21960784310000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Lz0-3b-roe"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="E">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JnA-2C-Rpf">
+                                <rect key="frame" x="30" y="336" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.25490196079999999" green="0.21960784310000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="jWi-Mn-4sh"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="D">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugg-yR-v3Q">
+                                <rect key="frame" x="30" y="520" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.25490196079999999" green="0.21960784310000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="oGp-o8-oUd"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Cancel">
+                                            <attributes>
+                                                <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="onCancel:" destination="ykk-ov-QBR" eventType="touchUpInside" id="gpZ-GS-n2J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ugg-yR-v3Q" firstAttribute="leading" secondItem="6no-AO-RSD" secondAttribute="leading" constant="30" id="1GW-oT-MFS"/>
+                            <constraint firstAttribute="trailing" secondItem="1xj-bH-5Zw" secondAttribute="trailing" constant="30" id="3XX-ec-S2B"/>
+                            <constraint firstItem="vRh-UY-iQD" firstAttribute="top" secondItem="1xj-bH-5Zw" secondAttribute="bottom" constant="30" id="BM1-uw-wgT"/>
+                            <constraint firstAttribute="trailing" secondItem="ugg-yR-v3Q" secondAttribute="trailing" constant="30" id="CQc-p1-KrX"/>
+                            <constraint firstAttribute="trailing" secondItem="vRh-UY-iQD" secondAttribute="trailing" constant="30" id="GDt-4w-pms"/>
+                            <constraint firstItem="1xj-bH-5Zw" firstAttribute="top" secondItem="UMb-9u-l4c" secondAttribute="bottom" constant="30" id="Pvx-Oz-MK5"/>
+                            <constraint firstAttribute="trailing" secondItem="JnA-2C-Rpf" secondAttribute="trailing" constant="30" id="Qdy-FB-Udl"/>
+                            <constraint firstAttribute="trailing" secondItem="Uql-RR-7Ib" secondAttribute="trailing" constant="30" id="XJl-Zo-Wzf"/>
+                            <constraint firstItem="ugg-yR-v3Q" firstAttribute="top" secondItem="Uql-RR-7Ib" secondAttribute="bottom" constant="30" id="ZH6-R5-Ibb"/>
+                            <constraint firstItem="JnA-2C-Rpf" firstAttribute="top" secondItem="vRh-UY-iQD" secondAttribute="bottom" constant="30" id="cIa-Op-9n3"/>
+                            <constraint firstItem="vRh-UY-iQD" firstAttribute="leading" secondItem="6no-AO-RSD" secondAttribute="leading" constant="30" id="lBj-3N-K5a"/>
+                            <constraint firstItem="1xj-bH-5Zw" firstAttribute="leading" secondItem="6no-AO-RSD" secondAttribute="leading" constant="30" id="nPf-cX-Wkp"/>
+                            <constraint firstItem="JnA-2C-Rpf" firstAttribute="leading" secondItem="6no-AO-RSD" secondAttribute="leading" constant="30" id="re4-Wm-hzf"/>
+                            <constraint firstItem="Uql-RR-7Ib" firstAttribute="top" secondItem="JnA-2C-Rpf" secondAttribute="bottom" constant="30" id="sI7-wH-wmt"/>
+                            <constraint firstItem="UMb-9u-l4c" firstAttribute="top" secondItem="ZXk-6z-Tqu" secondAttribute="bottom" constant="40" id="v6o-gK-6mW"/>
+                            <constraint firstAttribute="trailing" secondItem="UMb-9u-l4c" secondAttribute="trailing" constant="30" id="vYC-Pg-Kwy"/>
+                            <constraint firstItem="UMb-9u-l4c" firstAttribute="leading" secondItem="6no-AO-RSD" secondAttribute="leading" constant="30" id="wui-09-3lT"/>
+                            <constraint firstItem="Uql-RR-7Ib" firstAttribute="leading" secondItem="6no-AO-RSD" secondAttribute="leading" constant="30" id="yJv-5A-4TE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NZR-by-jM0"/>
+                    <connections>
+                        <outlet property="optionA" destination="UMb-9u-l4c" id="zbX-Je-j15"/>
+                        <outlet property="optionB" destination="1xj-bH-5Zw" id="Qsp-lE-r04"/>
+                        <outlet property="optionC" destination="vRh-UY-iQD" id="oaN-kH-1VK"/>
+                        <outlet property="optionD" destination="JnA-2C-Rpf" id="I2Q-8U-Dpp"/>
+                        <outlet property="optionE" destination="Uql-RR-7Ib" id="hpT-NJ-u9S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3a-rQ-0e1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1983" y="709"/>
         </scene>
         <!--Poll Options View Controller-->
         <scene sceneID="Pd7-7b-46N">
