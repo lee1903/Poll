@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 
 
-class PollOptionsViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class PollOptionsViewController: UIViewController, MKMapViewDelegate {
     
     var numOptions: Int?
     var currentLocation: CLLocation?
@@ -36,25 +36,6 @@ class PollOptionsViewController: UIViewController, CLLocationManagerDelegate, MK
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func setupLocationServices() {
-        self.locationManager.requestAlwaysAuthorization()
-        
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
-        }
-    }
-    
-    func getCurrentLocation() {
-        centerMapOnLocation(currentLocation!)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = currentLocation!.coordinate
-        mapView.addAnnotation(annotation)
     }
     
     @IBAction func onNumOptionsChange(sender: AnyObject) {
@@ -87,6 +68,24 @@ class PollOptionsViewController: UIViewController, CLLocationManagerDelegate, MK
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "CreatePollWithOptions" {
+            let vc = segue.destinationViewController as! PollingViewController
+            let poll = sender as! Poll
+            vc.currentPoll = poll
+        }
+    }
+
+}
+
+extension PollOptionsViewController: CLLocationManagerDelegate {
+    func getCurrentLocation() {
+        centerMapOnLocation(currentLocation!)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = currentLocation!.coordinate
+        mapView.addAnnotation(annotation)
+    }
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue = manager.location!
         
@@ -101,14 +100,15 @@ class PollOptionsViewController: UIViewController, CLLocationManagerDelegate, MK
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "CreatePollWithOptions" {
-            let vc = segue.destinationViewController as! PollingViewController
-            let poll = sender as! Poll
-            vc.currentPoll = poll
+    func setupLocationServices() {
+        self.locationManager.requestAlwaysAuthorization()
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
         }
     }
-
 }

@@ -10,7 +10,7 @@ import UIKit
 import JBChartView
 import Foundation
 
-class PollingViewController: UIViewController, JBBarChartViewDelegate, JBBarChartViewDataSource {
+class PollingViewController: UIViewController {
     
     var currentPoll: Poll?
 
@@ -48,7 +48,34 @@ class PollingViewController: UIViewController, JBBarChartViewDelegate, JBBarChar
         
         barChartView.reloadDataAnimated(true)
     }
+
+    @IBAction func onEnd(sender: AnyObject) {
+        APIClient.endPoll(currentPoll!) { (error) in
+            if(error != nil) {
+                print(error?.localizedDescription)
+            } else {
+                
+            }
+        }
+    }
     
+    @IBAction func onUpdate(sender: AnyObject) {
+        updateStats()
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension PollingViewController: JBBarChartViewDelegate, JBBarChartViewDataSource  {
     func setupBarChart() {
         barChartView.delegate = self
         barChartView.dataSource = self
@@ -78,30 +105,4 @@ class PollingViewController: UIViewController, JBBarChartViewDelegate, JBBarChar
             return CGFloat(height)
         }
     }
-    
-
-    @IBAction func onEnd(sender: AnyObject) {
-        APIClient.endPoll(currentPoll!) { (error) in
-            if(error != nil) {
-                print(error?.localizedDescription)
-            } else {
-                
-            }
-        }
-    }
-    
-    @IBAction func onUpdate(sender: AnyObject) {
-        updateStats()
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

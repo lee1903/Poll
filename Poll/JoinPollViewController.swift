@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
+class JoinPollViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var takePollMapView: MKMapView!
@@ -23,14 +23,9 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        codeTextField.delegate = self
-        codeTextField.becomeFirstResponder()
-        codeTextField.addTarget(self, action: #selector(JoinPollViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
-
-        codeTextField.text = ""
-        
         takePollMapView.delegate = self
         
+        setupTextField()
         setupLocationServices()
         
         self.view.backgroundColor = UIColor(red:0.61, green:0.58, blue:0.68, alpha:1.0)
@@ -92,9 +87,42 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
             }
         }
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AnswerPoll" {
+            let vc = segue.destinationViewController as! AnswerPollViewController
+            let str = sender! as! String
+            vc.pollOptions = Int(str)
+            vc.pollid = codeTextField.text!
+        }
+    }
+
+}
+
+extension JoinPollViewController: UITextFieldDelegate {
+    func setupTextField() {
+        codeTextField.delegate = self
+        codeTextField.becomeFirstResponder()
+        codeTextField.addTarget(self, action: #selector(JoinPollViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        
+        codeTextField.text = ""
+    }
     
-    //location functions
+    func textFieldDidChange(textField: UITextField) {
+        if(codeTextField.text!.characters.count == 4) {
+            codeTextField.resignFirstResponder()
+        }
+    }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= 4 // Bool
+    }
+}
+
+extension JoinPollViewController: CLLocationManagerDelegate {
     func setupLocationServices() {
         self.locationManager.requestAlwaysAuthorization()
         
@@ -127,30 +155,4 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         takePollMapView.setRegion(coordinateRegion, animated: true)
     }
-    
-    //textField functions
-    
-    func textFieldDidChange(textField: UITextField) {
-        if(codeTextField.text!.characters.count == 4) {
-            codeTextField.resignFirstResponder()
-        }
-    }
-    
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return true }
-        
-        let newLength = text.characters.count + string.characters.count - range.length
-        return newLength <= 4 // Bool
-    }
-    
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "AnswerPoll" {
-            let vc = segue.destinationViewController as! AnswerPollViewController
-            let str = sender! as! String
-            vc.pollOptions = Int(str)
-            vc.pollid = codeTextField.text!
-        }
-    }
-
 }
