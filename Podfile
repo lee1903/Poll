@@ -6,5 +6,6 @@ use_frameworks!
 target 'Poll' do
     pod 'Parse'
     pod 'AFNetworking'
+    pod 'JBChartView'
 end
 

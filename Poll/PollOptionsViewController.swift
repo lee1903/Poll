@@ -74,7 +74,15 @@ class PollOptionsViewController: UIViewController, CLLocationManagerDelegate, MK
                 print(error?.localizedDescription)
             } else {
                 poll.id = response!
-                self.performSegueWithIdentifier("CreatePollWithOptions", sender: poll)
+                
+                APIClient.getPollStats(poll.id!) { (stats, error) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                    } else {
+                        poll.stats = stats!
+                        self.performSegueWithIdentifier("CreatePollWithOptions", sender: poll)
+                    }
+                }
             }
         }
     }

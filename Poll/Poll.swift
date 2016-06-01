@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 class Poll: NSObject {
-    let stats: [[String]]?
+    var stats: [[String]]?
     let optionsCount: Int?
     let title: String?
     let date: NSDate?

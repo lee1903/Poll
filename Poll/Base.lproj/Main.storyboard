@@ -548,6 +548,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSa-KK-oO3" customClass="JBBarChartView">
+                                <rect key="frame" x="40" y="192" width="240" height="217"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0kq-hr-buL"/>
+                                    <constraint firstAttribute="height" constant="217" id="AGc-mM-wi3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -558,10 +565,19 @@
                             <constraint firstItem="gs7-Se-4Mo" firstAttribute="centerX" secondItem="JIf-7O-BeU" secondAttribute="centerX" id="KMe-W5-HW0"/>
                             <constraint firstAttribute="trailing" secondItem="7yv-FG-LNR" secondAttribute="trailing" constant="30" id="TJh-kR-egB"/>
                             <constraint firstItem="gs7-Se-4Mo" firstAttribute="top" secondItem="lTX-bL-Chd" secondAttribute="bottom" constant="1" id="WH7-pd-4rk"/>
+                            <constraint firstItem="zSa-KK-oO3" firstAttribute="top" secondItem="gs7-Se-4Mo" secondAttribute="bottom" constant="17" id="Zuq-3K-WCe"/>
+                            <constraint firstItem="zSa-KK-oO3" firstAttribute="centerX" secondItem="JIf-7O-BeU" secondAttribute="centerX" id="gh8-HU-A5c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vRh-xz-cNT"/>
+                    <navigationItem key="navigationItem" id="vRh-xz-cNT">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="NLE-Ir-N5Q">
+                            <connections>
+                                <action selector="onUpdate:" destination="nbS-Vs-Bch" id="c73-iS-oN6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="barChartView" destination="zSa-KK-oO3" id="JyT-sq-Pky"/>
                         <outlet property="idLabel" destination="gs7-Se-4Mo" id="kR5-gV-fCF"/>
                     </connections>
                 </viewController>

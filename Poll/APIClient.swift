@@ -113,4 +113,22 @@ class APIClient {
             completion(optionsCount: nil, longitude: nil, latitude: nil, error: error)
         }
     }
+    
+    class func getPollStats(id: String, completion: (stats: [[String]]?, error: NSError?) -> ()){
+        
+        let url = apiURL + "polls/id=\(id)"
+        
+        http.GET(url, parameters: [], progress: { (progress: NSProgress) in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) in
+            
+            let dictionary = response! as! NSDictionary
+            let stats = dictionary["stats"] as! [[String]]
+            
+            completion(stats: stats, error: nil)
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) in
+            
+            completion(stats: nil , error: error)
+        }
+    }
+
 }

@@ -51,17 +51,30 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
         // Dispose of any resources that can be recreated.
     }
     
+    func unableToJoinPollPrompt() {
+        let alert = UIAlertController(title: "Uh oh!", message: "Unable to join this poll. Check to make sure you have the right code and that your location services is on.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+            self.codeTextField.text = ""
+            self.codeTextField.becomeFirstResponder()
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func outOfRangePrompt() {
+        let alert = UIAlertController(title: "Uh oh!", message: "You are too far away from this poll to join. Try getting closer to the poll and check to make sure you have the right code.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+            self.codeTextField.text = ""
+            self.codeTextField.becomeFirstResponder()
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func onJoin(sender: AnyObject) {
         APIClient.joinPoll(codeTextField.text!) { (optionsCount, longitude, latitude, error) in
             if error != nil {
                 print(error?.localizedDescription)
                 
-                let alert = UIAlertController(title: "Uh oh!", message: "Unable to join this poll. Check to make sure you have the right code and that your location services is on.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
-                    self.codeTextField.text = ""
-                    self.codeTextField.becomeFirstResponder()
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.unableToJoinPollPrompt()
                 
             } else {
                 let lat = (latitude! as NSString).doubleValue
@@ -72,14 +85,7 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
                 print(distance)
                 
                 if distance > 500 {
-                    
-                    let alert = UIAlertController(title: "Uh oh!", message: "You are too far away from this poll to join. Try getting closer to the poll and check to make sure you have the right code.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
-                        self.codeTextField.text = ""
-                        self.codeTextField.becomeFirstResponder()
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    
+                    self.outOfRangePrompt()
                 } else {
                     self.performSegueWithIdentifier("AnswerPoll", sender: optionsCount!)
                 }
