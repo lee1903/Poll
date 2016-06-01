@@ -52,7 +52,7 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     @IBAction func onJoin(sender: AnyObject) {
-        APIClient.joinPoll(codeTextField.text!) { (optionsCount, error) in
+        APIClient.joinPoll(codeTextField.text!) { (optionsCount, longitude, latitude, error) in
             if error != nil {
                 print(error?.localizedDescription)
                 
@@ -64,7 +64,25 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
                 self.presentViewController(alert, animated: true, completion: nil)
                 
             } else {
-                self.performSegueWithIdentifier("AnswerPoll", sender: optionsCount!)
+                let lat = (latitude! as NSString).doubleValue
+                let long = (longitude! as NSString).doubleValue
+                let pollLocation = CLLocation(latitude: lat, longitude: long)
+                
+                let distance = self.currentLocation!.distanceFromLocation(pollLocation)
+                print(distance)
+                
+                if distance > 500 {
+                    
+                    let alert = UIAlertController(title: "Uh oh!", message: "You are too far away from this poll to join. Try getting closer to the poll and check to make sure you have the right code.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { action in
+                        self.codeTextField.text = ""
+                        self.codeTextField.becomeFirstResponder()
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                } else {
+                    self.performSegueWithIdentifier("AnswerPoll", sender: optionsCount!)
+                }
             }
         }
     }
@@ -125,6 +143,7 @@ class JoinPollViewController: UIViewController, UITextFieldDelegate, CLLocationM
             let vc = segue.destinationViewController as! AnswerPollViewController
             let str = sender! as! String
             vc.pollOptions = Int(str)
+            vc.pollid = codeTextField.text!
         }
     }
 

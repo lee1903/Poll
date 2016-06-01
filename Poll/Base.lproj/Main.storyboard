@@ -245,6 +245,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="onClickA:" destination="ykk-ov-QBR" eventType="touchUpInside" id="sJO-Ox-Txk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xj-bH-5Zw">
                                 <rect key="frame" x="30" y="152" width="260" height="62"/>
@@ -262,6 +265,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="onClickB:" destination="ykk-ov-QBR" eventType="touchUpInside" id="rPd-Kz-jdw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vRh-UY-iQD">
                                 <rect key="frame" x="30" y="244" width="260" height="62"/>
@@ -279,6 +285,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="onClickC:" destination="ykk-ov-QBR" eventType="touchUpInside" id="Xdk-2q-Ad7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uql-RR-7Ib">
                                 <rect key="frame" x="30" y="428" width="260" height="62"/>
@@ -296,6 +305,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="onClickE:" destination="ykk-ov-QBR" eventType="touchUpInside" id="edQ-c0-pON"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JnA-2C-Rpf">
                                 <rect key="frame" x="30" y="336" width="260" height="62"/>
@@ -313,6 +325,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="onClickD:" destination="ykk-ov-QBR" eventType="touchUpInside" id="o76-ld-gUZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugg-yR-v3Q">
                                 <rect key="frame" x="30" y="520" width="260" height="62"/>
@@ -322,7 +337,7 @@
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Cancel">
+                                        <fragment content="Submit">
                                             <attributes>
                                                 <color key="NSColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
@@ -331,7 +346,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="onCancel:" destination="ykk-ov-QBR" eventType="touchUpInside" id="gpZ-GS-n2J"/>
+                                    <action selector="onSubmit:" destination="ykk-ov-QBR" eventType="touchUpInside" id="aiQ-hC-WWT"/>
                                 </connections>
                             </button>
                         </subviews>

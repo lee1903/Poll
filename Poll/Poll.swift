@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 class Poll: NSObject {
-    let stats: NSArray?
+    let stats: [[String]]?
     let optionsCount: Int?
     let title: String?
     let date: NSDate?
@@ -24,8 +24,8 @@ class Poll: NSObject {
         self.author = author
         
         self.id = nil
+        self.stats = [[String]]()
         
-        self.stats = [optionsCount]
         self.title = ""
         self.date = NSDate()
     }

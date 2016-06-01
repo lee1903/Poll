@@ -33,7 +33,7 @@ class APIClient {
                 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             
-            print("failure retrieving ingredients")
+            print("API cliet failure ingredients")
             completion(polls: nil, error: error)
         }
     }
@@ -54,7 +54,7 @@ class APIClient {
                 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             
-            print("failure retrieving ingredients")
+            print("API cliet failure ingredients")
             completion(response: nil, error: error)
         }
     }
@@ -62,8 +62,9 @@ class APIClient {
     class func endPoll(poll: Poll, completion: (error: NSError?) -> ()){
         
         let url = apiURL + "polls/id=\(poll.id!)"
+        let params = ["status": "expire"]
         
-        http.PUT(url, parameters: [], success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        http.PUT(url, parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
             
                 print(response!)
                 completion(error: nil)
@@ -71,12 +72,30 @@ class APIClient {
                 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             
-            print("failure retrieving ingredients")
+            print("API cliet failure ingredients")
             completion(error: error)
         }
     }
     
-    class func joinPoll(id: String, completion: (optionsCount: String?, error: NSError?) -> ()){
+    class func answerPoll(pollid: String, response: String, completion: (error: NSError?) -> ()){
+        
+        let url = apiURL + "polls/id=\(pollid)"
+        let params = ["response": response, "user": User.currentUser!.name!]
+        
+        http.PUT(url, parameters: params, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            print(response!)
+            completion(error: nil)
+            
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
+            
+            print("API cliet failure ingredients")
+            completion(error: error)
+        }
+    }
+    
+    class func joinPoll(id: String, completion: (optionsCount: String?, longitude: String?, latitude: String?, error: NSError?) -> ()){
         
         let url = apiURL + "polls/id=\(id)"
         
@@ -84,12 +103,14 @@ class APIClient {
 
             let dictionary = response! as! NSDictionary
             let optionsCount = dictionary["optionsCount"] as! String
+            let longitude = dictionary["longitude"] as! String
+            let latitude = dictionary["latitude"] as! String
                 
-            completion(optionsCount: optionsCount, error: nil)
+            completion(optionsCount: optionsCount, longitude: longitude, latitude: latitude, error: nil)
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) in
             
-                completion(optionsCount: nil, error: error)
+            completion(optionsCount: nil, longitude: nil, latitude: nil, error: error)
         }
     }
 }
