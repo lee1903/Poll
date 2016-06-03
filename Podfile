@@ -7,5 +7,6 @@ target 'Poll' do
     pod 'Parse'
     pod 'AFNetworking'
     pod 'JBChartView'
+    pod 'Charts'
 end
 
