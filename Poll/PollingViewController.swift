@@ -17,6 +17,8 @@ class PollingViewController: UIViewController {
 
     var barViews: [UIView] = [UIView(), UIView(), UIView(), UIView(), UIView()]
     var labelsHidden = true
+    var updater: NSTimer?
+    var startTime = NSTimeInterval()
 
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var barChartView: JBBarChartView!
@@ -30,19 +32,57 @@ class PollingViewController: UIViewController {
     @IBOutlet weak var eCountLabel: UILabel!
     @IBOutlet weak var counterContainerView: UIView!
     
+    @IBOutlet weak var aLabel: UILabel!
+    @IBOutlet weak var bLabel: UILabel!
+    @IBOutlet weak var cLabel: UILabel!
+    @IBOutlet weak var dLabel: UILabel!
+    @IBOutlet weak var eLabel: UILabel!
+    @IBOutlet weak var labelContainerView: UIView!
+    
+    @IBOutlet weak var timerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.hidesBackButton = true
         idLabel.text = "\(currentPoll!.id!)"
         
         self.view.backgroundColor = UIColor(red:0.25, green:0.22, blue:0.37, alpha:1.0)
         
         setupBarChart()
         setupBarViews()
-        hideTotalLabels()
+        hideLabels()
+        setupSingleCounter()
         
+        startTime = NSDate.timeIntervalSinceReferenceDate()
+        updater = NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(PollingViewController.updateStats), userInfo: nil, repeats: true)
+
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+         setupLabels()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func updateTimer() {
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime: NSTimeInterval = currentTime - startTime
+        let minutes = UInt8(elapsedTime/60.0)
+        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        let seconds = UInt8(elapsedTime)
+        elapsedTime -= NSTimeInterval(seconds)
+        
+        let strMinutes = String(format: "%02d", minutes)
+        let strSeconds = String(format: "%02d", seconds)
+        
+        timerLabel.text = "\(strMinutes):\(strSeconds)"
+    }
+    
+    func setupSingleCounter() {
         singleCounterLabel.hidden = true
         
         if currentPoll!.optionsCount! == 1 {
@@ -51,36 +91,17 @@ class PollingViewController: UIViewController {
             singleCounterLabel.hidden = false
             singleCounterLabel.text = "0"
         }
-        
-        _ = NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(PollingViewController.updateStats), userInfo: nil, repeats: true)
-
-        // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
-         setupTotalLabels()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func hideLabels() {
+        counterContainerView.alpha = 0
+        labelContainerView.alpha = 0
     }
     
-    func hideTotalLabels() {
-        aCountLabel.alpha = 0
-        bCountLabel.alpha = 0
-        cCountLabel.alpha = 0
-        dCountLabel.alpha = 0
-        eCountLabel.alpha = 0
-    }
-    
-    func showTotalLabels() {
+    func showLabels() {
         UIView.animateWithDuration(1.0) {
-            self.aCountLabel.alpha = 1
-            self.bCountLabel.alpha = 1
-            self.cCountLabel.alpha = 1
-            self.dCountLabel.alpha = 1
-            self.eCountLabel.alpha = 1
+            self.counterContainerView.alpha = 1
+            self.labelContainerView.alpha = 1
         }
         
         labelsHidden = false
@@ -95,6 +116,9 @@ class PollingViewController: UIViewController {
     }
     
     func updateStats() {
+        
+        updateTimer()
+        
         APIClient.getPollStats(currentPoll!.id!) { (stats, error) in
             if error != nil {
                 print(error?.localizedDescription)
@@ -112,33 +136,57 @@ class PollingViewController: UIViewController {
 
     }
     
-    func setupTotalLabels() {
+    func setupLabels() {
+        aCountLabel.text = "0"
+        bCountLabel.text = "0"
+        cCountLabel.text = "0"
+        dCountLabel.text = "0"
+        eCountLabel.text = "0"
+        
         if currentPoll!.optionsCount! > 1 {
             aCountLabel.center = CGPoint(x: (barViews[0].center.x), y: (counterContainerView.frame.height/2))
             bCountLabel.center = CGPoint(x: (barViews[1].center.x), y: (counterContainerView.frame.height/2))
+            
+            aLabel.center = CGPoint(x: (barViews[0].center.x), y: (labelContainerView.frame.height/2))
+            bLabel.center = CGPoint(x: (barViews[1].center.x), y: (labelContainerView.frame.height/2))
         }
         if currentPoll!.optionsCount! > 2 {
             cCountLabel.center = CGPoint(x: (barViews[2].center.x), y: (counterContainerView.frame.height/2))
+            
+            cLabel.center = CGPoint(x: (barViews[2].center.x), y: (labelContainerView.frame.height/2))
         }
         if currentPoll!.optionsCount! > 3 {
             dCountLabel.center = CGPoint(x: (barViews[3].center.x), y: (counterContainerView.frame.height/2))
+            
+            dLabel.center = CGPoint(x: (barViews[3].center.x), y: (labelContainerView.frame.height/2))
         }
         if currentPoll!.optionsCount! > 4 {
             eCountLabel.center = CGPoint(x: (barViews[4].center.x), y: (counterContainerView.frame.height/2))
+            
+            eLabel.center = CGPoint(x: (barViews[4].center.x), y: (labelContainerView.frame.height/2))
         }
         
         if currentPoll!.optionsCount! < 2 {
             aCountLabel.hidden = true
             bCountLabel.hidden = true
+            
+            aLabel.hidden = true
+            bLabel.hidden = true
         }
         if currentPoll!.optionsCount! < 3 {
             cCountLabel.hidden = true
+            
+            cLabel.hidden = true
         }
         if currentPoll!.optionsCount! < 4 {
             dCountLabel.hidden = true
+            
+            dLabel.hidden = true
         }
         if currentPoll!.optionsCount! < 5 {
             eCountLabel.hidden = true
+            
+            eLabel.hidden = true
         }
         
     }
@@ -151,7 +199,7 @@ class PollingViewController: UIViewController {
             }
             
             if count > 0 {
-                showTotalLabels()
+                showLabels()
             }
         }
         
@@ -171,11 +219,14 @@ class PollingViewController: UIViewController {
     }
 
     @IBAction func onEnd(sender: AnyObject) {
+        self.updater!.invalidate()
+        
         APIClient.endPoll(currentPoll!) { (error) in
             if(error != nil) {
                 print(error?.localizedDescription)
             } else {
-                
+                self.dismissViewControllerAnimated(true, completion: {
+                })
             }
         }
     }

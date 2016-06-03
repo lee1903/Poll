@@ -20,6 +20,7 @@ class PollOptionsViewController: UIViewController, MKMapViewDelegate {
     let regionRadius: CLLocationDistance = 1000
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var createButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,10 @@ class PollOptionsViewController: UIViewController, MKMapViewDelegate {
         self.view.backgroundColor = UIColor(red:0.25, green:0.22, blue:0.37, alpha:1.0)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        createButton.enabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +49,8 @@ class PollOptionsViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func onCreatePoll(sender: AnyObject) {
+        createButton.enabled = false
+        
         if(numOptions == nil) {
             numOptions = 1
         }
