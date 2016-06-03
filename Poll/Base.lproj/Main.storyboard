@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="108" y="356"/>
         </scene>
-        <!--Nav View Controller-->
+        <!--Polls-->
         <scene sceneID="B0k-ko-Kr6">
             <objects>
                 <viewController id="9iX-ld-kyG" customClass="NavViewController" customModule="Poll" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-Mh-1dV">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wgh-Mh-1dV">
                                 <rect key="frame" x="0.0" y="316" width="320" height="252"/>
                                 <color key="backgroundColor" red="0.60784313725490191" green="0.58431372549019611" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
@@ -66,7 +66,7 @@
                                     <action selector="onTakePoll:" destination="9iX-ld-kyG" eventType="touchUpInside" id="ZXx-W5-Has"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phP-jA-qtK">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phP-jA-qtK">
                                 <rect key="frame" x="0.0" y="64" width="320" height="252"/>
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.2196078431372549" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal">
@@ -96,6 +96,7 @@
                             <constraint firstItem="Wgh-Mh-1dV" firstAttribute="top" secondItem="phP-jA-qtK" secondAttribute="bottom" id="xRk-mC-45A"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Polls" id="QQ8-ca-rKK"/>
                     <navigationItem key="navigationItem" id="muq-D9-Dfh">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="D4m-mO-lyE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dap-fm-Qof">
@@ -115,7 +116,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypN-T7-aIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="339"/>
+            <point key="canvasLocation" x="1386" y="325"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="3ej-CM-6nu">
+            <objects>
+                <viewController id="cP9-y7-SQT" customClass="HistoryViewController" customModule="Poll" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xfg-Cv-GAx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ziz-fq-0qj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gR-cr-uGv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="13" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pEV-mX-xfb">
+                                <rect key="frame" x="0.0" y="64" width="320" height="161"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="13" id="90k-vc-Ndy">
+                                        <rect key="frame" x="0.0" y="79" width="320" height="13"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="90k-vc-Ndy" id="GXY-Z5-Oy9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="13"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" id="Hap-xI-czt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O0i-dk-976" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1392" y="1163"/>
         </scene>
         <!--Join Poll View Controller-->
         <scene sceneID="shw-n3-M2w">
@@ -215,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xbw-1e-FKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1549" y="709"/>
+            <point key="canvasLocation" x="2081" y="709"/>
         </scene>
         <!--Answer Poll View Controller-->
         <scene sceneID="tuB-eD-RGO">
@@ -383,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3a-rQ-0e1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="709"/>
+            <point key="canvasLocation" x="2515" y="709"/>
         </scene>
         <!--Poll Options View Controller-->
         <scene sceneID="Pd7-7b-46N">
@@ -481,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EpT-jZ-4My" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529" y="6"/>
+            <point key="canvasLocation" x="2061" y="6"/>
         </scene>
         <!--Polling View Controller-->
         <scene sceneID="y0L-Dq-3KG">
@@ -901,7 +937,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p0c-jb-hBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1995" y="6"/>
+            <point key="canvasLocation" x="2527" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yC2-9y-QwP">
@@ -914,12 +950,31 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="9iX-ld-kyG" kind="relationship" relationship="rootViewController" id="Eed-eY-nze"/>
+                        <segue destination="GX0-ji-YrD" kind="relationship" relationship="rootViewController" id="Eed-eY-nze"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fdy-iz-zn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="535" y="367"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9tl-pH-xQD">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GX0-ji-YrD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="tF3-4Y-7Vh"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="rBc-LW-KbX">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9iX-ld-kyG" kind="relationship" relationship="viewControllers" id="0GP-NO-3O6"/>
+                        <segue destination="cP9-y7-SQT" kind="relationship" relationship="viewControllers" id="eyh-X8-1md"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NM-66-naW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="416"/>
         </scene>
     </scenes>
 </document>

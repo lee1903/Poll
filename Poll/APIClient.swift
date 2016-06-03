@@ -20,6 +20,17 @@ class APIClient {
         return date
     }
     
+    private class func getPollsFromResponse(response: AnyObject) -> [Poll] {
+        var polls: [Poll] = []
+        
+        let array = response as! NSArray
+        for dictionary in array {
+            let poll = Poll(dictionary: dictionary as! NSDictionary)
+            polls.append(poll)
+        }
+        return polls
+    }
+    
     class func getPolls(completion: (polls: [Poll]?, error: NSError?) -> ()){
         
         let url = apiURL + "polls/"
@@ -42,7 +53,7 @@ class APIClient {
     class func createPoll(poll: Poll, completion: (response: String?, error: NSError?) -> ()){
         
         let url = apiURL + "polls/"
-        let params = ["title" : "\(poll.title!)", "date": "\(getDateString(poll.date!))", "optionsCount" : "\(poll.optionsCount!)", "latitude" : "\(poll.location!.coordinate.latitude)", "longitude" : "\(poll.location!.coordinate.longitude)"]
+        let params = ["title" : "\(poll.title!)", "date": "\(getDateString(poll.date!))", "optionsCount" : "\(poll.optionsCount!)", "latitude" : "\(poll.location!.coordinate.latitude)", "longitude" : "\(poll.location!.coordinate.longitude)", "author": "\(poll.author!.id!)"]
         
         http.POST(url, parameters: params, progress: { (progress: NSProgress) -> Void in
             }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
@@ -128,6 +139,22 @@ class APIClient {
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) in
             
             completion(stats: nil , error: error)
+        }
+    }
+    
+    class func getHistory(author: String, completion: (polls: [Poll]?, error: NSError?) -> ()){
+        
+        let url = apiURL + "polls/author=\(author)"
+        
+        http.GET(url, parameters: [], progress: { (progress: NSProgress) in }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) in
+            
+            let polls = getPollsFromResponse(response!)
+            
+            completion(polls: polls, error: nil)
+            
+        }) { (dataTask: NSURLSessionDataTask?, error: NSError) in
+            
+            completion(polls: nil , error: error)
         }
     }
 

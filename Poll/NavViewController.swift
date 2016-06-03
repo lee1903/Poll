@@ -19,6 +19,15 @@ class NavViewController: UIViewController {
         
         print(User.currentUser!.name!)
         print(User.currentUser!.email!)
+        print(User.currentUser!.id!)
+        
+        APIClient.getHistory(User.currentUser!.id!) { (polls, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                print(polls)
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
