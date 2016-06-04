@@ -13,7 +13,7 @@ import Foundation
 class PollingViewController: UIViewController {
     
     var currentPoll: Poll?
-    let colors = [UIColor(red:1.00, green:0.83, blue:0.57, alpha:1.0), UIColor(red:0.57, green:0.93, blue:1.00, alpha:1.0), UIColor(red:1.00, green:0.56, blue:0.62, alpha:1.0), UIColor(red:1.00, green:0.96, blue:0.57, alpha:1.0), UIColor(red:0.78, green:1.00, blue:0.57, alpha:1.0)]
+    let colors = [UIColor(red:0.15, green:0.35, blue:0.34, alpha:1.0), UIColor(red:0.93, green:0.92, blue:0.83, alpha:1.0), UIColor(red:0.66, green:0.53, blue:0.26, alpha:1.0), UIColor(red:0.34, green:0.77, blue:0.28, alpha:1.0), UIColor(red:0.26, green:0.49, blue:0.56, alpha:1.0)]
 
     var barViews: [UIView] = [UIView(), UIView(), UIView(), UIView(), UIView()]
     var labelsHidden = true
@@ -41,12 +41,14 @@ class PollingViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
     
+    @IBOutlet weak var endButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         idLabel.text = "\(currentPoll!.id!)"
         
-        self.view.backgroundColor = UIColor(red:0.25, green:0.22, blue:0.37, alpha:1.0)
+        endButton.layer.cornerRadius = 8
         
         setupBarChart()
         setupBarViews()

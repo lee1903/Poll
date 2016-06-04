@@ -12,22 +12,22 @@ import FBSDKLoginKit
 
 class NavViewController: UIViewController {
 
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var takeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red:0.46, green:0.43, blue:0.56, alpha:1.0)
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.08, green:0.41, blue:0.59, alpha:1.0)
+        tabBarController?.tabBar.barTintColor = UIColor(red:0.08, green:0.41, blue:0.59, alpha:1.0)
+        tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        
+        createButton.layer.cornerRadius = 8        
+        takeButton.layer.cornerRadius = 8
         
         print(User.currentUser!.name!)
         print(User.currentUser!.email!)
         print(User.currentUser!.id!)
-        
-        APIClient.getHistory(User.currentUser!.id!) { (polls, error) in
-            if error != nil {
-                print(error?.localizedDescription)
-            } else {
-                print(polls)
-            }
-        }
 
         // Do any additional setup after loading the view.
     }
@@ -37,12 +37,12 @@ class NavViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     @IBAction func onLogout(sender: AnyObject) {
         let loginManager = FBSDKLoginManager()
         loginManager.logOut() // this is an instance function
         User.currentUser?.logout()
     }
+
     
     @IBAction func onCreatePoll(sender: AnyObject) {
         self.performSegueWithIdentifier("SetPollOptions", sender: self)
@@ -62,4 +62,4 @@ class NavViewController: UIViewController {
     }
     */
 
-}
+} 

@@ -24,6 +24,11 @@
 		E4B438941CF66C8A0056C56D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4B438931CF66C8A0056C56D /* Assets.xcassets */; };
 		E4B438971CF66C8A0056C56D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4B438951CF66C8A0056C56D /* LaunchScreen.storyboard */; };
 		E4C1F3A81D016501004ACBE9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3A71D016501004ACBE9 /* HistoryViewController.swift */; };
+		E4C1F3AA1D02036C004ACBE9 /* PollDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3A91D02036C004ACBE9 /* PollDetailCell.swift */; };
+		E4C1F3AC1D020916004ACBE9 /* PollDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3AB1D020916004ACBE9 /* PollDetailViewController.swift */; };
+		E4C1F3AE1D02181A004ACBE9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3AD1D02181A004ACBE9 /* OptionCell.swift */; };
+		E4C1F3B01D021D3E004ACBE9 /* ResponderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3AF1D021D3E004ACBE9 /* ResponderListViewController.swift */; };
+		E4C1F3B21D021E31004ACBE9 /* ResponderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3B11D021E31004ACBE9 /* ResponderCell.swift */; };
 		E4C4E8E21CF67A760059917C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C4E8DF1CF67A760059917C /* FBSDKCoreKit.framework */; };
 		E4C4E8E31CF67A760059917C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C4E8E01CF67A760059917C /* FBSDKLoginKit.framework */; };
 		E4C4E8E41CF67A760059917C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C4E8E11CF67A760059917C /* FBSDKShareKit.framework */; };
@@ -51,6 +56,11 @@
 		E4B438961CF66C8A0056C56D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4B438981CF66C8A0056C56D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4C1F3A71D016501004ACBE9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		E4C1F3A91D02036C004ACBE9 /* PollDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollDetailCell.swift; sourceTree = "<group>"; };
+		E4C1F3AB1D020916004ACBE9 /* PollDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollDetailViewController.swift; sourceTree = "<group>"; };
+		E4C1F3AD1D02181A004ACBE9 /* OptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		E4C1F3AF1D021D3E004ACBE9 /* ResponderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderListViewController.swift; sourceTree = "<group>"; };
+		E4C1F3B11D021E31004ACBE9 /* ResponderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderCell.swift; sourceTree = "<group>"; };
 		E4C4E8DF1CF67A760059917C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E4C4E8E01CF67A760059917C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E4C4E8E11CF67A760059917C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -97,6 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				E461AC111CF932A8007F1120 /* CustomTextField.swift */,
+				E4C1F3A91D02036C004ACBE9 /* PollDetailCell.swift */,
+				E4C1F3AD1D02181A004ACBE9 /* OptionCell.swift */,
+				E4C1F3B11D021E31004ACBE9 /* ResponderCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -120,6 +133,8 @@
 				E461AC0E1CF92E55007F1120 /* JoinPollViewController.swift */,
 				E49CBB581CF946BF006BF672 /* AnswerPollViewController.swift */,
 				E4C1F3A71D016501004ACBE9 /* HistoryViewController.swift */,
+				E4C1F3AB1D020916004ACBE9 /* PollDetailViewController.swift */,
+				E4C1F3AF1D021D3E004ACBE9 /* ResponderListViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -291,13 +306,18 @@
 				E461AC0F1CF92E55007F1120 /* JoinPollViewController.swift in Sources */,
 				E4C1F3A81D016501004ACBE9 /* HistoryViewController.swift in Sources */,
 				E49CBB591CF946BF006BF672 /* AnswerPollViewController.swift in Sources */,
+				E4C1F3B21D021E31004ACBE9 /* ResponderCell.swift in Sources */,
+				E4C1F3AE1D02181A004ACBE9 /* OptionCell.swift in Sources */,
 				E45156E31CF7A2740061B7F2 /* PollOptionsViewController.swift in Sources */,
+				E4C1F3AC1D020916004ACBE9 /* PollDetailViewController.swift in Sources */,
 				E461AC121CF932A8007F1120 /* CustomTextField.swift in Sources */,
 				E461AC0D1CF82524007F1120 /* APIClient.swift in Sources */,
 				E4B4388D1CF66C8A0056C56D /* AppDelegate.swift in Sources */,
+				E4C1F3B01D021D3E004ACBE9 /* ResponderListViewController.swift in Sources */,
 				E45156E51CF7A74E0061B7F2 /* PollingViewController.swift in Sources */,
 				E4A454691CF6CEDB0098409B /* NavViewController.swift in Sources */,
 				E4A454621CF67EA50098409B /* User.swift in Sources */,
+				E4C1F3AA1D02036C004ACBE9 /* PollDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +436,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Poll/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianlee.Poll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +453,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Poll/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianlee.Poll;
 				PRODUCT_NAME = "$(TARGET_NAME)";

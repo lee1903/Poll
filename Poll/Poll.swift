@@ -16,23 +16,21 @@ class Poll: NSObject {
     let date: NSDate?
     let location: CLLocation?
     let author: User?
-    let author_id: String?
     var id: String?
     
-    init(optionsCount: Int, location: CLLocation, author: User) {
+    init(optionsCount: Int, location: CLLocation, author: User, title: String) {
         self.optionsCount = optionsCount
         self.location = location
         self.author = author
-        self.author_id = author.id!
         
         self.id = nil
         self.stats = [[String]]()
         
-        self.title = ""
+        self.title = title
         self.date = NSDate()
     }
     
-    init(dictionary: NSDictionary) {
+    init(dictionary: NSDictionary, author: User) {
         self.stats = dictionary["stats"] as? [[String]]
         self.optionsCount = Int((dictionary["optionsCount"] as! String))
         self.title = dictionary["title"] as? String
@@ -48,8 +46,7 @@ class Poll: NSObject {
         
         self.location = pollLocation
         //need create init for user from dictionary so can add full user here
-        self.author = nil
-        self.author_id = dictionary["author"] as? String
+        self.author = author
         self.id = nil
         
     }

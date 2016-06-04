@@ -14,6 +14,8 @@ class JoinPollViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var takePollMapView: MKMapView!
+    
+    @IBOutlet weak var joinButton: UIButton!
 
     var currentLocation: CLLocation?
     
@@ -23,12 +25,12 @@ class JoinPollViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        joinButton.layer.cornerRadius = 8
+        
         takePollMapView.delegate = self
         
         setupTextField()
         setupLocationServices()
-        
-        self.view.backgroundColor = UIColor(red:0.61, green:0.58, blue:0.68, alpha:1.0)
 
         // Do any additional setup after loading the view.
     }
@@ -88,6 +90,10 @@ class JoinPollViewController: UIViewController, MKMapViewDelegate {
         }
     }
 
+    @IBAction func onBack(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AnswerPoll" {
             let vc = segue.destinationViewController as! AnswerPollViewController

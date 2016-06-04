@@ -21,15 +21,21 @@ class PollOptionsViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var nameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createButton.layer.cornerRadius = 8
+        
         mapView.delegate = self
+        
+        nameTextField.delegate = self
         
         setupLocationServices()
         
-        self.view.backgroundColor = UIColor(red:0.25, green:0.22, blue:0.37, alpha:1.0)
+        nameTextField.text = ""
+        nameTextField.becomeFirstResponder()
 
         // Do any additional setup after loading the view.
     }
@@ -41,6 +47,9 @@ class PollOptionsViewController: UIViewController, MKMapViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func onBack(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func onNumOptionsChange(sender: AnyObject) {
@@ -55,7 +64,7 @@ class PollOptionsViewController: UIViewController, MKMapViewDelegate {
             numOptions = 1
         }
         
-        let poll = Poll(optionsCount: numOptions!, location: currentLocation!, author: User.currentUser!)
+        let poll = Poll(optionsCount: numOptions!, location: currentLocation!, author: User.currentUser!, title: nameTextField.text!)
         
         APIClient.createPoll(poll) { (response, error) -> () in
             if error != nil{
@@ -117,5 +126,12 @@ extension PollOptionsViewController: CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
+    }
+}
+
+extension PollOptionsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

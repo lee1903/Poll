@@ -20,28 +20,31 @@ class AnswerPollViewController: UIViewController {
     @IBOutlet weak var optionC: UIButton!
     @IBOutlet weak var optionD: UIButton!
     @IBOutlet weak var optionE: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    @IBOutlet weak var selectionIndicator: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupButtons()
+        
         if pollOptions! < 5 {
-            optionE.alpha = 0.4
+            optionE.alpha = 0.1
             optionE.enabled = false
         }
         if pollOptions! < 4 {
-            optionD.alpha = 0.4
+            optionD.alpha = 0.1
             optionD.enabled = false
         }
         if pollOptions! < 3 {
-            optionC.alpha = 0.4
+            optionC.alpha = 0.1
             optionC.enabled = false
         }
         if pollOptions! < 2 {
-            optionB.alpha = 0.4
+            optionB.alpha = 0.1
             optionB.enabled = false
         }
-        
-        self.view.backgroundColor = UIColor(red:0.61, green:0.58, blue:0.68, alpha:1.0)
 
         // Do any additional setup after loading the view.
     }
@@ -51,12 +54,24 @@ class AnswerPollViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setupButtons() {
+        optionA.layer.cornerRadius = 8
+        optionB.layer.cornerRadius = 8
+        optionC.layer.cornerRadius = 8
+        optionD.layer.cornerRadius = 8
+        optionE.layer.cornerRadius = 8
+        submitButton.layer.cornerRadius = 8
+        
+        selectionIndicator.layer.cornerRadius = 8
+        selectionIndicator.alpha = 0
+    }
+    
     func changeSelectedOption(option: UIButton) {
-        if selectedAnswer != nil {
-            selectedAnswer!.backgroundColor = UIColor(red:0.25, green:0.22, blue:0.37, alpha:1.0)
-        }
         selectedAnswer = option
-        selectedAnswer!.backgroundColor = UIColor(red:0.45, green:0.07, blue:0.19, alpha:1.0)
+        UIView.animateWithDuration(0.5) {
+            self.selectionIndicator.alpha = 1
+            self.selectionIndicator.center = CGPoint(x: self.selectionIndicator.center.x, y: self.selectedAnswer!.center.y)
+        }
     }
     
     @IBAction func onSubmit(sender: AnyObject) {

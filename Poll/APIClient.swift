@@ -25,7 +25,7 @@ class APIClient {
         
         let array = response as! NSArray
         for dictionary in array {
-            let poll = Poll(dictionary: dictionary as! NSDictionary)
+            let poll = Poll(dictionary: dictionary as! NSDictionary, author: User.currentUser!)
             polls.append(poll)
         }
         return polls
