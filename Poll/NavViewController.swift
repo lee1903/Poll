@@ -19,6 +19,8 @@ class NavViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.barTintColor = UIColor(red:0.08, green:0.41, blue:0.59, alpha:1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         tabBarController?.tabBar.barTintColor = UIColor(red:0.08, green:0.41, blue:0.59, alpha:1.0)
         tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         
@@ -37,11 +39,11 @@ class NavViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onLogout(sender: AnyObject) {
-        let loginManager = FBSDKLoginManager()
-        loginManager.logOut() // this is an instance function
-        User.currentUser?.logout()
-    }
+//    @IBAction func onLogout(sender: AnyObject) {
+//        let loginManager = FBSDKLoginManager()
+//        loginManager.logOut() // this is an instance function
+//        User.currentUser?.logout()
+//    }
 
     
     @IBAction func onCreatePoll(sender: AnyObject) {

@@ -12,13 +12,18 @@ class PollDetailCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var poll: Poll! {
         didSet{
             titleLabel.text = poll.title!
             
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+            dateFormatter.dateFormat = "h:mm a"
+            dateFormatter.AMSymbol = "AM"
+            dateFormatter.PMSymbol = "PM"
+            timeLabel.text = dateFormatter.stringFromDate(poll.date!)
+            dateFormatter.dateFormat =  "MMMM dd, yyyy"
             dateLabel.text = dateFormatter.stringFromDate(poll.date!)
             
         }

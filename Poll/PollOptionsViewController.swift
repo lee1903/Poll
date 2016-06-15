@@ -70,7 +70,8 @@ class PollOptionsViewController: UIViewController, MKMapViewDelegate {
             if error != nil{
                 print(error?.localizedDescription)
             } else {
-                poll.id = response!
+                poll.id = response![0]
+                poll.server_id = response![1]
                 
                 APIClient.getPollStats(poll.id!) { (stats, error) in
                     if error != nil {

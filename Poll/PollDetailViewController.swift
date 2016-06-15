@@ -46,7 +46,9 @@ class PollDetailViewController: UIViewController {
         titleLabel.text = poll!.title!
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        dateFormatter.dateFormat = "MMMM dd, yyyy 'at' h:mm a"
+        dateFormatter.AMSymbol = "AM"
+        dateFormatter.PMSymbol = "PM"
         dateLabel.text = dateFormatter.stringFromDate(poll!.date!)
         
         setupBarChart()

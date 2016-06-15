@@ -29,6 +29,7 @@
 		E4C1F3AE1D02181A004ACBE9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3AD1D02181A004ACBE9 /* OptionCell.swift */; };
 		E4C1F3B01D021D3E004ACBE9 /* ResponderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3AF1D021D3E004ACBE9 /* ResponderListViewController.swift */; };
 		E4C1F3B21D021E31004ACBE9 /* ResponderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3B11D021E31004ACBE9 /* ResponderCell.swift */; };
+		E4C1F3B41D03A2A2004ACBE9 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1F3B31D03A2A2004ACBE9 /* UserViewController.swift */; };
 		E4C4E8E21CF67A760059917C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C4E8DF1CF67A760059917C /* FBSDKCoreKit.framework */; };
 		E4C4E8E31CF67A760059917C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C4E8E01CF67A760059917C /* FBSDKLoginKit.framework */; };
 		E4C4E8E41CF67A760059917C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C4E8E11CF67A760059917C /* FBSDKShareKit.framework */; };
@@ -61,6 +62,7 @@
 		E4C1F3AD1D02181A004ACBE9 /* OptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		E4C1F3AF1D021D3E004ACBE9 /* ResponderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderListViewController.swift; sourceTree = "<group>"; };
 		E4C1F3B11D021E31004ACBE9 /* ResponderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponderCell.swift; sourceTree = "<group>"; };
+		E4C1F3B31D03A2A2004ACBE9 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		E4C4E8DF1CF67A760059917C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E4C4E8E01CF67A760059917C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E4C4E8E11CF67A760059917C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				E4C1F3A71D016501004ACBE9 /* HistoryViewController.swift */,
 				E4C1F3AB1D020916004ACBE9 /* PollDetailViewController.swift */,
 				E4C1F3AF1D021D3E004ACBE9 /* ResponderListViewController.swift */,
+				E4C1F3B31D03A2A2004ACBE9 /* UserViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E45156E11CF793D20061B7F2 /* Poll.swift in Sources */,
+				E4C1F3B41D03A2A2004ACBE9 /* UserViewController.swift in Sources */,
 				E4B4388F1CF66C8A0056C56D /* ViewController.swift in Sources */,
 				E461AC0F1CF92E55007F1120 /* JoinPollViewController.swift in Sources */,
 				E4C1F3A81D016501004ACBE9 /* HistoryViewController.swift in Sources */,

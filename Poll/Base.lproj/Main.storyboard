@@ -115,14 +115,7 @@
                     <tabBarItem key="tabBarItem" title="" image="Poll" id="QQ8-ca-rKK">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Poll" id="muq-D9-Dfh">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="z91-nB-KPQ">
-                            <color key="tintColor" red="0.75686274509803919" green="0.85882352941176465" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="onLogout:" destination="9iX-ld-kyG" id="LCQ-hB-cJJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Poll" id="muq-D9-Dfh"/>
                     <connections>
                         <outlet property="createButton" destination="phP-jA-qtK" id="pIi-d9-wng"/>
                         <outlet property="takeButton" destination="Wgh-Mh-1dV" id="r1B-X1-CXe"/>
@@ -134,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="1386" y="325"/>
         </scene>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="TE2-kA-CTL">
             <objects>
-                <viewController id="iMg-qY-s84" sceneMemberID="viewController">
+                <viewController id="iMg-qY-s84" customClass="UserViewController" customModule="Poll" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LUo-4J-WYz"/>
                         <viewControllerLayoutGuide type="bottom" id="FXG-0y-G0q"/>
@@ -145,11 +138,41 @@
                     <view key="view" contentMode="scaleToFill" id="1U0-V6-V1j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Acn-yl-lOj">
+                                <rect key="frame" x="30" y="427" width="260" height="62"/>
+                                <color key="backgroundColor" red="0.41568627450000001" green="0.68235294120000001" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="4Ab-5P-gq0"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Logout">
+                                            <attributes>
+                                                <color key="NSColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="onLogout:" destination="iMg-qY-s84" eventType="touchUpInside" id="Eb6-bC-tOp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.76078431372549016" green="0.85882352941176465" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Acn-yl-lOj" firstAttribute="leading" secondItem="1U0-V6-V1j" secondAttribute="leading" constant="30" id="O7u-pu-kys"/>
+                            <constraint firstItem="FXG-0y-G0q" firstAttribute="top" secondItem="Acn-yl-lOj" secondAttribute="bottom" constant="30" id="QjE-Jd-Rxx"/>
+                            <constraint firstAttribute="trailing" secondItem="Acn-yl-lOj" secondAttribute="trailing" constant="30" id="p28-gJ-Nke"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="User" id="ncH-Dw-7yi">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="logoutButton" destination="Acn-yl-lOj" id="aea-j1-ecK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdK-mU-Uvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,40 +192,57 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pEV-mX-xfb">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.76078431372549016" green="0.85882352941176465" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PollDetailCell" rowHeight="65" id="90k-vc-Ndy" customClass="PollDetailCell" customModule="Poll" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="90k-vc-Ndy" id="GXY-Z5-Oy9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-Of-oBC">
-                                                    <rect key="frame" x="17" y="8" width="34" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzS-QC-aeg">
+                                                    <rect key="frame" x="192" y="31" width="115" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="lry-5u-ne4"/>
+                                                        <constraint firstAttribute="height" constant="21" id="KR6-oU-OcM"/>
+                                                        <constraint firstAttribute="width" constant="115" id="Pqo-Qr-fHW"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="Title">
+                                                        <fragment content="June 23, 2016">
                                                             <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="NSColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzS-QC-aeg">
-                                                    <rect key="frame" x="17" y="30" width="35" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GF4-k6-ihq">
+                                                    <rect key="frame" x="232" y="8" width="75" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="P35-kL-Gwh"/>
+                                                        <constraint firstAttribute="height" constant="21" id="24h-cw-fDc"/>
+                                                        <constraint firstAttribute="width" constant="75" id="bgS-8y-QPh"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="Date">
+                                                        <fragment content="12:20 PM">
                                                             <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="NSColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGZ-Of-oBC">
+                                                    <rect key="frame" x="8" y="7" width="112" height="23"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="CS252 Poll 1">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="19" name="HelveticaNeue-Medium"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -211,17 +251,21 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="VGZ-Of-oBC" firstAttribute="leading" secondItem="GXY-Z5-Oy9" secondAttribute="leading" constant="17" id="8Tj-3P-u1h"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VGZ-Of-oBC" secondAttribute="trailing" constant="20" id="JZH-8Z-DAg"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QzS-QC-aeg" secondAttribute="trailing" constant="20" id="L2L-Dk-nvw"/>
-                                                <constraint firstItem="VGZ-Of-oBC" firstAttribute="top" secondItem="GXY-Z5-Oy9" secondAttribute="top" constant="8" id="O2m-hh-fgw"/>
-                                                <constraint firstItem="QzS-QC-aeg" firstAttribute="top" secondItem="VGZ-Of-oBC" secondAttribute="bottom" constant="1" id="Prq-ol-2gS"/>
-                                                <constraint firstAttribute="bottom" secondItem="QzS-QC-aeg" secondAttribute="bottom" constant="13.5" id="jiQ-WC-yL9"/>
-                                                <constraint firstItem="QzS-QC-aeg" firstAttribute="leading" secondItem="GXY-Z5-Oy9" secondAttribute="leading" constant="17" id="tgS-KM-n3W"/>
+                                                <constraint firstItem="VGZ-Of-oBC" firstAttribute="leading" secondItem="GXY-Z5-Oy9" secondAttribute="leading" constant="8" id="2ET-AB-LTj"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VGZ-Of-oBC" secondAttribute="bottom" constant="13" id="4y2-Zu-2jZ"/>
+                                                <constraint firstItem="QzS-QC-aeg" firstAttribute="top" secondItem="GF4-k6-ihq" secondAttribute="bottom" constant="2" id="Bdr-OB-9eJ"/>
+                                                <constraint firstItem="GF4-k6-ihq" firstAttribute="top" secondItem="GXY-Z5-Oy9" secondAttribute="top" constant="8" id="DZI-fH-BjH"/>
+                                                <constraint firstAttribute="trailing" secondItem="GF4-k6-ihq" secondAttribute="trailing" constant="13" id="Jy8-lK-AhQ"/>
+                                                <constraint firstItem="VGZ-Of-oBC" firstAttribute="top" secondItem="GXY-Z5-Oy9" secondAttribute="top" constant="7" id="mR7-hF-Nxv"/>
+                                                <constraint firstItem="GF4-k6-ihq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VGZ-Of-oBC" secondAttribute="trailing" constant="70" id="pum-Xz-vgH"/>
+                                                <constraint firstAttribute="trailing" secondItem="QzS-QC-aeg" secondAttribute="trailing" constant="13" id="qCT-LH-gPJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="QzS-QC-aeg" secondAttribute="bottom" constant="13" id="w3U-Tz-ZZP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.76078431372549016" green="0.85882352941176465" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="QzS-QC-aeg" id="nlr-ke-N0d"/>
+                                            <outlet property="timeLabel" destination="GF4-k6-ihq" id="9Lu-TN-JDK"/>
                                             <outlet property="titleLabel" destination="VGZ-Of-oBC" id="Jno-8s-Qqe"/>
                                         </connections>
                                     </tableViewCell>

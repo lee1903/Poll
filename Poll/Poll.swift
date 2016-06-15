@@ -17,6 +17,7 @@ class Poll: NSObject {
     let location: CLLocation?
     let author: User?
     var id: String?
+    var server_id: String?
     
     init(optionsCount: Int, location: CLLocation, author: User, title: String) {
         self.optionsCount = optionsCount
@@ -24,6 +25,7 @@ class Poll: NSObject {
         self.author = author
         
         self.id = nil
+        self.server_id = nil
         self.stats = [[String]]()
         
         self.title = title
@@ -48,6 +50,7 @@ class Poll: NSObject {
         //need create init for user from dictionary so can add full user here
         self.author = author
         self.id = nil
+        self.server_id = dictionary["_id"] as? String
         
     }
     

@@ -23,6 +23,8 @@ class APIClient {
     private class func getPollsFromResponse(response: AnyObject) -> [Poll] {
         var polls: [Poll] = []
         
+        print(response)
+        
         let array = response as! NSArray
         for dictionary in array {
             let poll = Poll(dictionary: dictionary as! NSDictionary, author: User.currentUser!)
@@ -44,13 +46,12 @@ class APIClient {
                 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             
-            print("API cliet failure ingredients")
             completion(polls: nil, error: error)
         }
     }
 
     
-    class func createPoll(poll: Poll, completion: (response: String?, error: NSError?) -> ()){
+    class func createPoll(poll: Poll, completion: (response: [String]?, error: NSError?) -> ()){
         
         let url = apiURL + "polls/"
         let params = ["title" : "\(poll.title!)", "date": "\(getDateString(poll.date!))", "optionsCount" : "\(poll.optionsCount!)", "latitude" : "\(poll.location!.coordinate.latitude)", "longitude" : "\(poll.location!.coordinate.longitude)", "author": "\(poll.author!.id!)"]
@@ -58,14 +59,17 @@ class APIClient {
         http.POST(url, parameters: params, progress: { (progress: NSProgress) -> Void in
             }, success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) -> Void in
                 
-                let id = response!["message"]!
-                let res = "\(id!)"
+                let dictionary = response! as! NSDictionary
+                let id = "\(dictionary["id"]!)"
+                let server_id = dictionary["server_id"] as! String
+                
+                let res = [id, server_id]
+                
                 completion(response: res, error: nil)
                 
                 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
             
-            print("API cliet failure ingredients")
             completion(response: nil, error: error)
         }
     }
@@ -82,8 +86,7 @@ class APIClient {
                 
                 
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
-            
-            print("API cliet failure ingredients")
+
             completion(error: error)
         }
     }
@@ -100,8 +103,7 @@ class APIClient {
             
             
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) -> Void in
-            
-            print("API cliet failure ingredients")
+
             completion(error: error)
         }
     }
@@ -155,6 +157,20 @@ class APIClient {
         }) { (dataTask: NSURLSessionDataTask?, error: NSError) in
             
             completion(polls: nil , error: error)
+        }
+    }
+    
+    class func deletePoll(server_id: String, completion: (error: NSError?) -> ()){
+        
+        let url = apiURL + "polls/\(server_id)"
+        
+        http.DELETE(url, parameters: [], success: { (dataTask: NSURLSessionDataTask, response: AnyObject?) in
+            
+            completion(error: nil)
+            
+            }) { (dataTask: NSURLSessionDataTask?, error: NSError) in
+                
+                completion(error: error)
         }
     }
 
